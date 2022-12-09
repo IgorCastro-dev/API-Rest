@@ -47,7 +47,8 @@ public class Evento {
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
-	};
+	}
+
 	
 	
 	

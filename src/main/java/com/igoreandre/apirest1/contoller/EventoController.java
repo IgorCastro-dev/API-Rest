@@ -1,8 +1,12 @@
 package com.igoreandre.apirest1.contoller;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,5 +32,15 @@ public class EventoController {
 		evento.setNome(eventodto.getNome());
 		evento.setSigla(eventodto.getSigla());
 		return ResponseEntity.status(HttpStatus.CREATED).body(eventoservice.salvar(evento));
+	}
+	
+	@DeleteMapping("/deletarevento/{id}")
+	public ResponseEntity<Object> deletarevento(@PathVariable(value = "id") long id){
+		Optional<Evento> eventoOptional = eventoservice.findById(id);
+		if (!eventoOptional.isPresent()) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("evento não encontrado");
+		}
+		eventoservice.deletarevento(eventoOptional.get());
+		return ResponseEntity.status(HttpStatus.OK).body("evento deletado com sucesso");
 	}
 }
