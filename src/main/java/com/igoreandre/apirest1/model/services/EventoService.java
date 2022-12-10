@@ -29,4 +29,9 @@ public class EventoService {
 		eventorepository.delete(evento);
 	}
 
+	public Object findAll() {
+		// TODO Auto-generated method stub
+		return eventorepository.findAll();
+	}
+
 }
