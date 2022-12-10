@@ -1,0 +1,16 @@
+// evento
+{
+    "nome":"farofadagkay",
+    "sigla":"fg",
+    "descrição":"festinha legal",
+    "caminho":"farofa"
+}
+
+//edição
+{
+    "numero":3,
+    "ano":2022,
+    "data_inicial":"2022-12-12",
+    "data_final":"2022-12-13",
+    "cidade":"niteroi"
+}

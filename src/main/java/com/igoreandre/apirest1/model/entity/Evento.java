@@ -1,9 +1,12 @@
 package com.igoreandre.apirest1.model.entity;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class Evento {
@@ -14,6 +17,10 @@ public class Evento {
 	private String nome;
 	private String sigla;
 	private String descricao;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_evento")
+	private Edição edicao;
 	
 	public Evento() {}
 
@@ -47,6 +54,14 @@ public class Evento {
 
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
+	}
+
+	public Edição getEdicao() {
+		return edicao;
+	}
+
+	public void setEdicao(Edição edicao) {
+		this.edicao = edicao;
 	}
 
 	
