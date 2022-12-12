@@ -8,8 +8,10 @@ import jakarta.persistence.Id;
 @Entity
 public class Espaço {
 	@Id
+	
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id_espaco;	
+	
 	private String nome;
 	private String localizacao;
 	private int capacidade;
