@@ -23,7 +23,8 @@ public class Edição {
 	private String chamada_trabalho;
 	private Date prazo;
 	private String inscricoes;
-	private String lista_organizadores;
+	private long id_organizador;
+	
 	
 	@OneToMany
 	@JoinColumn(name = "id_atividade")
@@ -53,12 +54,12 @@ public class Edição {
 		this.inscricoes = incricoes;
 	}
 
-	public String getLista_organizadores() {
-		return lista_organizadores;
+	public long getId_organizador() {
+		return id_organizador;
 	}
 
-	public void setLista_organizadores(String lista_organizadores) {
-		this.lista_organizadores = lista_organizadores;
+	public void setId_organizador(long id_organizador) {
+		this.id_organizador = id_organizador;
 	}
 
 	public Edição() {}

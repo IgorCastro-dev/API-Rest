@@ -27,7 +27,7 @@ public class EdicaoDTO{
 	
 	private String inscricoes;
 
-	private String lista_organizadores;
+	private long id_organizador;
 	
 	
 	public int getNumero() {
@@ -78,12 +78,13 @@ public class EdicaoDTO{
 	public void setInscricoes(String incricoes) {
 		this.inscricoes = incricoes;
 	}
-	public String getLista_organizadores() {
-		return lista_organizadores;
+	public long getId_organizador() {
+		return id_organizador;
 	}
-	public void setLista_organizadores(String lista_organizadores) {
-		this.lista_organizadores = lista_organizadores;
+	public void setId_organizador(long id_organizador) {
+		this.id_organizador = id_organizador;
 	}
+	
 	
 	
 }

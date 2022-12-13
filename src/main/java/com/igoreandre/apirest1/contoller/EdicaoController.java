@@ -17,8 +17,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.igoreandre.apirest1.model.dto.EdicaoDTO;
 import com.igoreandre.apirest1.model.entity.Edição;
 import com.igoreandre.apirest1.model.entity.Evento;
+import com.igoreandre.apirest1.model.entity.Usuário;
 import com.igoreandre.apirest1.model.services.EdicaoService;
 import com.igoreandre.apirest1.model.services.EventoService;
+import com.igoreandre.apirest1.model.services.UsuarioService;
+
 
 import jakarta.validation.Valid;
 
@@ -32,6 +35,29 @@ public class EdicaoController {
 	@Autowired
 	EdicaoService edicaoService;
 	
+	@Autowired
+	UsuarioService usuarioservice;
+	
+	@PutMapping("/adicionaorganizador/{id_edicao}/{id_usuario}")
+
+	public ResponseEntity<Object> adicionaorganizador(@PathVariable(name = "id_edicao") long id_edicao,@PathVariable(name = "id_usuario") long id_usuario ){
+		Optional<Edição> edicaoOptional = edicaoService.findById(id_edicao);
+		if (!edicaoOptional.isPresent()) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("edição não encontrada");
+		}
+		Optional<Usuário> usuarioOptional = usuarioservice.findById(id_usuario);
+		if (!edicaoOptional.isPresent()) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("usuário não encontrado");
+		}
+		
+		Edição edicao = edicaoOptional.get();
+		Usuário usuario = usuarioOptional.get();
+		
+		edicao.setId_organizador(id_usuario);
+		
+		return ResponseEntity.status(HttpStatus.OK).body(edicaoService.salvar(edicao));
+		
+	}
 	
 	@PostMapping("/cadastraredicao/{id_evento}")
 	public ResponseEntity<Object> cadastrarediçãot(@PathVariable(value = "id_evento") long id_evento,@RequestBody @Valid EdicaoDTO edicaodto){
