@@ -14,3 +14,20 @@
     "data_final":"2022-12-13",
     "cidade":"niteroi"
 }
+
+//espaço
+{ 
+	"capacidade":30,
+	"localizacao":"niteroi",
+	"nome":"areavip",
+	"recursos":"sala de jogos"
+}
+//atividade
+{ 
+	"nome":"jogar",
+	"tipoatividade":"palestra",
+	"descricao":"palestra de jogos",
+	"data":"2022-12-13",
+	"hora_inicial":"00:00:00",
+	"hora_final":"00:02:00"
+}

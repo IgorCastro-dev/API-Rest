@@ -13,11 +13,11 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.igoreandre.apirest1.model.dto.AtividadeDTO;
 import com.igoreandre.apirest1.model.entity.Atividade;
+import com.igoreandre.apirest1.model.entity.Espaço;
 import com.igoreandre.apirest1.model.services.AtividadeService;
-
+import com.igoreandre.apirest1.model.services.EspacoService;
 import jakarta.validation.Valid;
 
 @RestController
@@ -27,8 +27,18 @@ public class AtividadesController {
 	@Autowired
 	AtividadeService atividadeservice;
 	
-	@PostMapping("/cadastraratividade")
-	public ResponseEntity<Object> cadastraratividade(@RequestBody @Valid AtividadeDTO atividadedto) {
+	@Autowired
+	EspacoService espacoService;
+	
+	@PostMapping("/cadastraratividade/{id_espaco}")
+	public ResponseEntity<Object> cadastraratividade(@PathVariable(value = "id_espaco") long id_espaco,@RequestBody @Valid AtividadeDTO atividadedto) {
+		Optional<Espaço> espacoOptional = espacoService.findById(id_espaco);
+		if (!espacoOptional.isPresent()) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("espaço não encontrado");
+		}
+		
+		Espaço espaco = espacoService.findById(id_espaco).get();
+		
 		Atividade atividade = new Atividade();
 		
 		atividade.setNome(atividadedto.getNome());
@@ -37,8 +47,11 @@ public class AtividadesController {
 		atividade.setData(atividadedto.getData());
 		atividade.setHora_inicial(atividadedto.getHora_inicial());
 		atividade.setHora_final(atividadedto.getHora_final());
+		Atividade atividadeSalva = atividadeservice.salvar(atividade);
 		
-		return ResponseEntity.status(HttpStatus.CREATED).body(atividadeservice.salvar(atividade));
+		espaco.setAtividade(atividadeSalva);
+		
+		return ResponseEntity.status(HttpStatus.CREATED).body(espacoService.salvar(espaco));
 	}
 	
 	@DeleteMapping("/deletaratividade/{id}")

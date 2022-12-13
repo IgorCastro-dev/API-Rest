@@ -1,11 +1,13 @@
 package com.igoreandre.apirest1.model.entity;
 
 import java.util.Date;
+import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Edição {
@@ -21,6 +23,9 @@ public class Edição {
 	private Date prazo;
 	private String inscricoes;
 	private String lista_organizadores;
+	
+	@OneToMany
+	private List<Atividade> atividade;
 	
 	public String getChamada_trabalho() {
 		return chamada_trabalho;

@@ -9,6 +9,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Atividade {
@@ -22,6 +23,9 @@ public class Atividade {
 	private Date data;
 	private Time hora_inicial;
 	private Time hora_final;
+	
+	@ManyToOne
+	private Edição edicao;
 	
 	public Atividade() {}
 
@@ -79,6 +83,14 @@ public class Atividade {
 
 	public void setHora_final(Time hora_final) {
 		this.hora_final = hora_final;
+	}
+
+	public Edição getEdicao() {
+		return edicao;
+	}
+
+	public void setEdicao(Edição edicao) {
+		this.edicao = edicao;
 	};
 	
 	

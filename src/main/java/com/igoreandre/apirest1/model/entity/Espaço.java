@@ -1,9 +1,12 @@
 package com.igoreandre.apirest1.model.entity;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class Espaço {
@@ -17,6 +20,18 @@ public class Espaço {
 	private int capacidade;
 	private String recursos;
 	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "id_atividade")
+	private Atividade atividade;
+	
+	public Atividade getAtividade() {
+		return atividade;
+	}
+
+	public void setAtividade(Atividade atividade) {
+		this.atividade = atividade;
+	}
+
 	public Espaço() {}
 
 	public long getId_espaco() {

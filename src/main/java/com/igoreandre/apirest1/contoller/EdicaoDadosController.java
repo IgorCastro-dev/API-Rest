@@ -11,12 +11,10 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.igoreandre.apirest1.model.dto.EdicaoDTO;
 import com.igoreandre.apirest1.model.entity.Edição;
 import com.igoreandre.apirest1.model.services.EdicaoService;
 import com.igoreandre.apirest1.model.services.EventoService;
-
 import jakarta.validation.Valid;
 
 @RestController
