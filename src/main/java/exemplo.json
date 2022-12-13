@@ -31,3 +31,11 @@
 	"hora_inicial":"00:00:00",
 	"hora_final":"00:02:00"
 }
+
+//Usuario
+{ 
+	"afiliacao":"carlos",
+	"email":"gabigol@fla.com",
+	"login":"gabigol",
+	"nome":"gabriel"
+}

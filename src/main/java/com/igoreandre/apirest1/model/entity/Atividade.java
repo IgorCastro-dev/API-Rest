@@ -9,6 +9,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 @Entity
@@ -25,8 +26,21 @@ public class Atividade {
 	private Time hora_final;
 	
 	@ManyToOne
+	@JoinColumn(name = "id_edicao")
 	private Edição edicao;
 	
+	@ManyToOne
+	@JoinColumn(name = "id_usuario")
+	private Usuário usuario;
+	
+	public Usuário getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuário usuario) {
+		this.usuario = usuario;
+	}
+
 	public Atividade() {}
 
 	public long getId_atividade() {
