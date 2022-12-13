@@ -34,11 +34,4 @@ public class UsuarioService {
 		return usuariorepository.findAll();
 	}
 
-	public Object findEvento(String caminho_evento, int ano_edicao) {
-		// TODO Auto-generated method stub
-		
-		
-		return usuariorepository.findEvento(caminho_evento,ano_edicao);
-	}
-
 }

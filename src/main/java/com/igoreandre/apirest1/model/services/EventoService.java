@@ -34,4 +34,8 @@ public class EventoService {
 		return eventorepository.findAll();
 	}
 
+	public Object findEvento(String caminho_evento,int ano) {
+		return eventorepository.findEvento(caminho_evento,ano);
+	}
+
 }
