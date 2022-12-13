@@ -8,4 +8,6 @@ import com.igoreandre.apirest1.model.entity.Usuário;
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuário, Long>{
 
+	Object findEvento(String caminho_evento, int ano_edicao);
+
 }

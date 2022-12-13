@@ -71,7 +71,8 @@ public class EdicaoController {
 		
 	}
 	
-	@DeleteMapping("deletaredicao/{id_edicao}")
+	
+	@DeleteMapping("/deletaredicao/{id_edicao}")
 	public ResponseEntity<Object> deletaredicao(@PathVariable(name = "id_edicao") long id_edicao) {
 		Optional<Edição> edicaoOptional = edicaoService.findById(id_edicao);
 		if (!edicaoOptional.isPresent()) {

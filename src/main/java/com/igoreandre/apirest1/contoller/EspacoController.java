@@ -21,7 +21,7 @@ import com.igoreandre.apirest1.model.services.EspacoService;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/espaco")
+@RequestMapping("/organizador")
 public class EspacoController {
 	
 	@Autowired
@@ -30,16 +30,6 @@ public class EspacoController {
 	@PostMapping("/cadastrarespaco")
 	public ResponseEntity<Object> cadastrarespaco(@RequestBody @Valid EspacoDTO espacodto) {
 		Espaço espaco = new Espaço();
-		
-		
-		System.out.println("*************************************");
-		System.out.println("********AQUI*******");
-		System.out.println("*************************************");
-		System.out.println(espacodto.getCapacidade());
-		System.out.println(espacodto.getLocalizacao());
-		System.out.println(espacodto.getRecursos());
-		System.out.println(espacodto.getNome());
-		
 		
 		espaco.setCapacidade(espacodto.getCapacidade());
 		espaco.setLocalizacao(espacodto.getLocalizacao());

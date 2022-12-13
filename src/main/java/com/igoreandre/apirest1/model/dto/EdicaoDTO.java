@@ -21,6 +21,14 @@ public class EdicaoDTO{
 	@NotBlank
 	private String cidade;
 	
+	private String chamada_trabalho;
+	
+	private Date prazo;
+	
+	private String inscricoes;
+
+	private String lista_organizadores;
+	
 	
 	public int getNumero() {
 		return numero;
@@ -51,6 +59,30 @@ public class EdicaoDTO{
 	}
 	public void setCidade(String cidade) {
 		this.cidade = cidade;
+	}
+	public String getChamada_trabalho() {
+		return chamada_trabalho;
+	}
+	public void setChamada_trabalho(String chamada_trabalho) {
+		this.chamada_trabalho = chamada_trabalho;
+	}
+	public Date getPrazo() {
+		return prazo;
+	}
+	public void setPrazo(Date prazo) {
+		this.prazo = prazo;
+	}
+	public String getInscricoes() {
+		return inscricoes;
+	}
+	public void setInscricoes(String incricoes) {
+		this.inscricoes = incricoes;
+	}
+	public String getLista_organizadores() {
+		return lista_organizadores;
+	}
+	public void setLista_organizadores(String lista_organizadores) {
+		this.lista_organizadores = lista_organizadores;
 	}
 	
 	

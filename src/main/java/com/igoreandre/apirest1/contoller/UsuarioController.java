@@ -21,7 +21,7 @@ import com.igoreandre.apirest1.model.services.UsuarioService;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/administrador")
+@RequestMapping("/usuario")
 public class UsuarioController {
 	
 	@Autowired

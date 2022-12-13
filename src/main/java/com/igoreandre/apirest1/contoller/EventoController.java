@@ -33,6 +33,7 @@ public class EventoController {
 		evento.setDescricao(eventodto.getDescrição());
 		evento.setNome(eventodto.getNome());
 		evento.setSigla(eventodto.getSigla());
+		evento.setCaminho(eventodto.getCaminho());
 		return ResponseEntity.status(HttpStatus.CREATED).body(eventoservice.salvar(evento));
 	}
 	
@@ -56,6 +57,7 @@ public class EventoController {
 		evento.setDescricao(eventodto.getDescrição());
 		evento.setNome(eventodto.getNome());
 		evento.setSigla(evento.getSigla());
+		evento.setCaminho(eventodto.getCaminho());
 		return ResponseEntity.status(HttpStatus.CREATED).body(eventoservice.salvar(evento));
 
 	}

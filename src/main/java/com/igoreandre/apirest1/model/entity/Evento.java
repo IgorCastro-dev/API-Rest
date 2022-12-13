@@ -17,6 +17,8 @@ public class Evento {
 	private String nome;
 	private String sigla;
 	private String descricao;
+	private String caminho;
+	
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_evento")
@@ -62,6 +64,14 @@ public class Evento {
 
 	public void setEdicao(Edição edicao) {
 		this.edicao = edicao;
+	}
+
+	public String getCaminho() {
+		return caminho;
+	}
+
+	public void setCaminho(String caminho) {
+		this.caminho = caminho;
 	}
 
 	
